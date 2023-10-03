@@ -8,7 +8,7 @@ const Cart = ({product}) => {
     const {addCard} = useContext(CartContext);
 
     const onClickAddCart = () =>{
-        product.orderQuality = 1;
+        product.orderQuantity = 1;
         addCard(product);
     }
     return (

@@ -1,6 +1,6 @@
 import CartCount from "./CartCount";
 
-const NavBar = () => {
+const Header = () => {
     return (
         <nav className="flex bg-violet-50 py-5 px-4 items-center justify-between fixed w-full -mt-24 z-10">
             <div>
@@ -12,4 +12,4 @@ const NavBar = () => {
         </nav>
     );
 }
-export default NavBar;
+export default Header;
