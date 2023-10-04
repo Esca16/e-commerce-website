@@ -10,10 +10,13 @@ const Favorite = () => {
     return (
         <>
             {isFavorite ? (
-                <AiFillHeart size={24} className="text-violet-900 cursor-pointer" onClick={onClickFavoriteHandler} />
+                <button>
+                    <AiFillHeart size={24} className="text-violet-900 cursor-pointer" onClick={onClickFavoriteHandler} />
+                </button>
             ) : (
-                <AiOutlineHeart size={24} className="text-violet-900 cursor-pointer" onClick={onClickFavoriteHandler} />
-
+                <button>
+                    <AiOutlineHeart size={24} className="text-violet-900 cursor-pointer" onClick={onClickFavoriteHandler} />
+                </button>
             )}
 
         </>

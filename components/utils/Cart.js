@@ -3,17 +3,19 @@ import { CartContext } from "@/context/CartProvider";
 import { useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const Cart = ({product}) => {
+const Cart = ({ product }) => {
 
-    const {addCard} = useContext(CartContext);
+    const { addCard } = useContext(CartContext);
 
-    const onClickAddCart = () =>{
+    const onClickAddCart = () => {
         product.orderQuantity = 1;
         addCard(product);
     }
     return (
         <>
-            <AiOutlineShoppingCart onClick={onClickAddCart} size={24} className="text-violet-900 cursor-pointer"/>
+            <button>
+                <AiOutlineShoppingCart onClick={onClickAddCart} size={24} className="text-violet-900 cursor-pointer" />
+            </button>
         </>
     );
 }

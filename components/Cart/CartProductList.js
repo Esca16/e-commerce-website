@@ -6,7 +6,7 @@ import CartProduct from "./CartProduct";
 const CartProductList = () => {
     const { cartProducts } = useContext(CartContext);
     return (
-        <div className="px-5">
+        <div className="overflow-y-auto h-[75vh]">
             {cartProducts.map((product) => (
                 <CartProduct key={product.id} product={product} />
             ))}
