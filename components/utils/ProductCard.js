@@ -10,9 +10,7 @@ const ProductCard = ({ product }) => {
                     <Cart product={product} />
                 </div>
                 <div className="relative">
-                    <div className="absolute top-2 right-2">
-                        <Favorite />
-                    </div>
+                    <Favorite product={product} />
                     <Image width={500} height={250} className="h-[300px] object-fill" src={product.thumbnail} alt={product.title} />
                 </div>
                 <div className="pl-3 py-3">

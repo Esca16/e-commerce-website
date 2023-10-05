@@ -4,8 +4,8 @@ import PopularProduct from "@/components/HomePage/PopularProduct";
 
 export default async function Home() {
   return (
-        <main className="mt-24">
-          <div className="container mx-auto">
+        <main>
+          <div className="container mx-auto px-4">
             <h1>Home Page</h1>
             <br />
             <Category />

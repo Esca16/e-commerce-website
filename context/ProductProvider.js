@@ -8,6 +8,7 @@ const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [popularProducts, setPopularProducts] = useState([]);
     const [forYouProducts, setForYouProducts] = useState([]);
+    const [favoriteProducts, setFavoriteProducts] = useState([]);
 
     const ForYouProduct = (products_array) => {
         let forU = [];
@@ -23,7 +24,7 @@ const ProductProvider = ({ children }) => {
     const loadProduct = async () => {
         const res = await fetch("https://dummyjson.com/products");
         const { products } = await res.json();
-        
+
         ForYouProduct(products);
         setProducts([...products]);
         const productFilter = products.filter((product) => product.rating > 4.5);
@@ -36,8 +37,17 @@ const ProductProvider = ({ children }) => {
         loadProduct();
     }, []);
 
+    const addFavoriteProducts = (products) => {
+        setFavoriteProducts([...favoriteProducts, products])
+    }
+
+    const removeFavoriteProducts = (product_id) => {
+        const removeProductFilter = favoriteProducts.filter((pd) => pd.id !== product_id);
+        setFavoriteProducts([...removeProductFilter])
+    }
+
     return (
-        <ProductContext.Provider value={{ products, popularProducts, forYouProducts }}>{children}</ProductContext.Provider>
+        <ProductContext.Provider value={{ products, popularProducts, forYouProducts, favoriteProducts, addFavoriteProducts, removeFavoriteProducts }}>{children}</ProductContext.Provider>
     );
 }
 
