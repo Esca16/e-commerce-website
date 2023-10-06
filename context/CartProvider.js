@@ -47,8 +47,27 @@ const CartProvider = ({ children }) => {
         const deletedProduct = cartProducts.filter(product => product.id !== product_id)
         setCartProducts([...deletedProduct])
     }
+
+    const addAllFavoriteProductsToCart = (favoriteProducts) => {
+        debugger;
+        let checkFavoriteProducts = [];
+        favoriteProducts.forEach((product) => {
+            const isExist = cartProducts.find(pd => pd.id === product.id);
+            if (!isExist) {
+                product.orderQuantity = 1;
+                if (product.discountPercentage) {
+                    product.discountAmount = Math.round(
+                        product.price - product.price * (product.discountPercentage / 100)
+                    );
+                }
+                checkFavoriteProducts.push(product);
+            }
+        });
+        setCartProducts([...cartProducts, ...checkFavoriteProducts])
+    }
+
     return (
-        <CartContext.Provider value={{ addCard, cartProducts, cartCount, isOpenCartPanel, setIsOpenCartPanel, cartUpdate, cartCalculate, removeCart }}>
+        <CartContext.Provider value={{ addCard, cartProducts, cartCount, isOpenCartPanel, setIsOpenCartPanel, cartUpdate, cartCalculate, removeCart, addAllFavoriteProductsToCart }}>
             {children}
         </CartContext.Provider>
     );

@@ -1,17 +1,24 @@
 "use client"
 import { ProductContext } from "@/context/ProductProvider";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 
-const Favorite = ({product}) => {
+const Favorite = ({ product }) => {
     const [isFavorite, setIsFavorite] = useState(false);
     const { addFavoriteProducts, removeFavoriteProducts, favoriteProducts } = useContext(ProductContext)
 
+    useEffect(() => {
+        const findProduct = favoriteProducts.find((pd) => pd.id === product.id);
+        if (findProduct) {
+            setIsFavorite(true)
+        }
+    }, [favoriteProducts])
+
     const onClickFavoriteHandler = () => {
         setIsFavorite(!isFavorite)
-        if(!isFavorite){
+        if (!isFavorite) {
             addFavoriteProducts(product);
-        } else{
+        } else {
             removeFavoriteProducts(product.id)
         }
     }

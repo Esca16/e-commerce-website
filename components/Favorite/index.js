@@ -2,6 +2,7 @@
 import { ProductContext } from "@/context/ProductProvider";
 import { useContext } from "react";
 import ProductCard from "../utils/ProductCard";
+import EmptyFavorite from "./EmptyFavorite";
 
 const FavoriteList = () => {
     const { favoriteProducts } = useContext(ProductContext)
@@ -10,6 +11,7 @@ const FavoriteList = () => {
             {favoriteProducts.map((fProduct) => (
                 <ProductCard product={fProduct} key={fProduct.id + "favorite"} />
             ))}
+            {favoriteProducts.length <= 0 && <EmptyFavorite />}
         </div>
     );
 }

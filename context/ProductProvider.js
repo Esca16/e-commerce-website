@@ -38,6 +38,10 @@ const ProductProvider = ({ children }) => {
     }, []);
 
     const addFavoriteProducts = (products) => {
+        const isExistFavProducts = favoriteProducts.find((favProduct) => favProduct.id == products.id);
+        if (isExistFavProducts) {
+            return;
+        }
         setFavoriteProducts([...favoriteProducts, products])
     }
 
