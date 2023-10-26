@@ -12,7 +12,7 @@ const Favorite = ({ product }) => {
         if (findProduct) {
             setIsFavorite(true)
         }
-    }, [favoriteProducts])
+    }, [favoriteProducts,product.id])
 
     const onClickFavoriteHandler = () => {
         setIsFavorite(!isFavorite)

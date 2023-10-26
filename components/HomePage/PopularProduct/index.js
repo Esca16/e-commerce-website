@@ -1,5 +1,4 @@
 "use client"
-
 import { ProductContext } from "@/context/ProductProvider";
 import { useContext } from "react";
 import ProductCard from "../../utils/ProductCard";
