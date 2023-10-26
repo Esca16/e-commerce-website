@@ -4,7 +4,7 @@ import ForYouProduct from "@/components/HomePage/ForYouProduct";
 import PopularProduct from "@/components/HomePage/PopularProduct";
 import { useSession } from "next-auth/react";
 
-export default async function Home() {
+export default function Home() {
   const { data } = useSession()
   return (
     <main>
