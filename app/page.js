@@ -1,10 +1,10 @@
-"use client"
+// "use client"
 import Category from "@/components/HomePage/Category";
 import ForYouProduct from "@/components/HomePage/ForYouProduct";
 import PopularProduct from "@/components/HomePage/PopularProduct";
 // import { useSession } from "next-auth/react";
 
-export default function Home() {
+export default async function Home() {
   // const { data } = useSession()
   return (
     <main>
